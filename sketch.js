@@ -29,5 +29,3 @@ function mouseclicked() {
   player *= -1;
   console.log(board);
 }
-
-function mouseClicked() {}
