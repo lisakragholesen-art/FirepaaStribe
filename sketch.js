@@ -24,4 +24,10 @@ function draw() {
   line(0, (height * 5) / 6, width, (height * 5) / 6);
 }
 
+function mouseclicked() {
+  board[cell] = player;
+  player *= -1;
+  console.log(board);
+}
+
 function mouseClicked() {}
