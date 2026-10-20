@@ -2,6 +2,10 @@ let cell = 0;
 let board = [0, 0, 0, 0, 0, 0, 0];
 let player = -1;
 
+for (let i = 0; i < 6; i++) {
+  board.push([0, 0, 0, 0, 0, 0]);
+}
+
 function setup() {
   //virker det
   createCanvas(700, 600);
@@ -24,8 +28,12 @@ function draw() {
   line(0, (height * 5) / 6, width, (height * 5) / 6);
 }
 
-function mouseclicked() {
-  board[cell] = player;
-  player *= -1;
-  console.log(board);
+function mouseClicked() {
+  for (let i = 0; i < 7; i++) {
+    if (mouseX > 0 + (width / 7) * i && mouseX < width / 7 + (width / 7) * i) {
+      console.log(i);
+      board[i][0] = 1;
+      console.log(board);
+    }
+  }
 }
