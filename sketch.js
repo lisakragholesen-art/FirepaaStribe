@@ -1,10 +1,16 @@
 let cell =0;
-let board = [0,0,0,0,0,0,0];
+let board = [];
+for (let i=0; i<6, i++) {
+  board.push([0,0,0,0,0,0]);
+}
 let player = -1;
 
 function setup() {
   //virker det
   createCanvas(700, 600);
+
+ 
+
 }
 
 function draw() {
