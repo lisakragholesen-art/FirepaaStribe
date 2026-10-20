@@ -1,4 +1,5 @@
 function setup() {
+  //virker det
   createCanvas(400, 400);
 }
 
