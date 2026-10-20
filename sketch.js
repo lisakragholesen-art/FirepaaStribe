@@ -20,4 +20,3 @@ function draw() {
   line(0,height*5/6,width, height*5/6);
 }
 
-//hej
