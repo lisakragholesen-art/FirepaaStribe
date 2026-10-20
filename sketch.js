@@ -25,11 +25,7 @@ function draw() {
 }
 
 function mouseclicked() {
-
-
-
-
-   board[cell] = player;
+  board[cell] = player;
   player *= -1;
   console.log(board);
 }
