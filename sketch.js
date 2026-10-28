@@ -32,7 +32,7 @@ function mouseClicked() {
   for (let i = 0; i < 7; i++) {
     if (mouseX > 0 + (width / 7) * i && mouseX < width / 7 + (width / 7) * i) {
       console.log(i);
-      board[i][0] = 1;
+      (board[i][0] == 0;
       console.log(board);
     }
   }
