@@ -1,6 +1,5 @@
-let cell = 0;
-let board = [0, 0, 0, 0, 0, 0, 0];
-let player = -1;
+let board = [];
+let player = 1;
 
 for (let i = 0; i < 6; i++) {
   board.push([0, 0, 0, 0, 0, 0]);
@@ -32,7 +31,22 @@ function mouseClicked() {
   for (let i = 0; i < 7; i++) {
     if (mouseX > 0 + (width / 7) * i && mouseX < width / 7 + (width / 7) * i) {
       console.log(i);
+<<<<<<< HEAD
       (board[i][0] == 0;
+=======
+      if (board[i][0] == 0) {
+        console.log("hej");
+        for (let j = 0; j < 6; j++) {
+          if (board[i][j] != 0) {
+            board[i][j - 1] = player;
+            break;
+          } else if (j == 5) {
+            board[i][j] = player;
+          }
+        }
+        player = player * -1;
+      }
+>>>>>>> 709f3b007cb85feb1c6115804393b134f1987c64
       console.log(board);
     }
   }
