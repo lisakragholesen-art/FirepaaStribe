@@ -25,6 +25,13 @@ function draw() {
   line(0, (height * 3) / 6, width, (height * 3) / 6);
   line(0, (height * 4) / 6, width, (height * 4) / 6);
   line(0, (height * 5) / 6, width, (height * 5) / 6);
+
+  for(let j=0; j < 7; j++){
+    for(let i=0; i < 6; i++)
+    if (board[i][j]== 1){
+      circle(width/6+width/3*(j%7),height/6+height/3*floor(i/6),width/3.5)
+    }
+  }
 }
 
 function mouseClicked() {
