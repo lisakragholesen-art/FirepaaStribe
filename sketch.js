@@ -1,7 +1,7 @@
 let board = [];
 let player = 1;
 
-for (let i = 0; i < 6; i++) {
+for (let i = 0; i < 7; i++) {
   board.push([0, 0, 0, 0, 0, 0]);
 }
 
