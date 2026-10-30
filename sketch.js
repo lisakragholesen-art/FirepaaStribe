@@ -30,7 +30,7 @@ function draw() {
     for(let i=0; i < 6; i++)
     if (board[i][j]== 1){
       fill(255, 204, 0)
-      circle(width/i(+40),height/6+height/3*floor(j/6),width/7)
+      circle(j/width+40, i/height+20, width/7-20)
     }
   }
 }
