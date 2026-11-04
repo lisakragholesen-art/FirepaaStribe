@@ -6,6 +6,8 @@ for (let i = 0; i < 7; i++) {
 }
 
 function setup() {
+  check = new WinCheck(board);
+
   //virker det
   createCanvas(700, 600);
 }
@@ -25,6 +27,13 @@ function draw() {
   line(0, (height * 3) / 6, width, (height * 3) / 6);
   line(0, (height * 4) / 6, width, (height * 4) / 6);
   line(0, (height * 5) / 6, width, (height * 5) / 6);
+
+  if (check.checkWin(board) !== 0) {
+    console.log("Player " + check.checkWin(board) + " wins!");
+  }
+  if (check.checkDraw(board)) {
+    console.log("It's a draw!");
+  }
 }
 
 function mouseClicked() {
@@ -32,7 +41,6 @@ function mouseClicked() {
     if (mouseX > 0 + (width / 7) * i && mouseX < width / 7 + (width / 7) * i) {
       console.log(i);
       if (board[i][0] == 0) {
-        console.log("hej");
         for (let j = 0; j < 6; j++) {
           if (board[i][j] != 0) {
             board[i][j - 1] = player;
