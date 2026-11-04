@@ -29,14 +29,14 @@ function draw() {
   for(let j=0; j < 7; j++){
     for(let i=0; i < 7; i++)
     if (board[i][j]== 1){
-      fill(255, 204, 0)
+      fill(249, 249, 46)
       circle(i*100+50, j*100+50, width/7-20)
     }
 
      for(let j=0; j < 7; j++){
     for(let i=0; i < 7; i++)
     if (board[i][j]== -1){
-      fill(20, 20, 100)
+      fill(31, 14, 182)
       circle(i*100+50, j*100+50, width/7-20)
     }
 }
