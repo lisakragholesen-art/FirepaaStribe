@@ -1,5 +1,10 @@
 let board = [];
 let player = 1;
+let pos;
+let vel;
+let brik1;
+let pc;
+let vc
 
 for (let i = 0; i < 7; i++) {
   board.push([0, 0, 0, 0, 0, 0]);
@@ -8,6 +13,9 @@ for (let i = 0; i < 7; i++) {
 function setup() {
   //virker det
   createCanvas(700, 600);
+  pos = createVector(25, 10);
+  vel = createVector(0, 0);
+  acc = createVector(0.2, 0.2);
 }
 
 function draw() {
@@ -26,11 +34,46 @@ function draw() {
   line(0, (height * 4) / 6, width, (height * 4) / 6);
   line(0, (height * 5) / 6, width, (height * 5) / 6);
 
+    for (let i = 0; i < 7; i++) {
+    if (mouseX > 0 + (width / 7) * i && mouseX < width / 7 + (width / 7) * i) {
+      if (player==1){
+      fill(249, 249, 46, 25)
+      circle(i*100+50, 50, width/7-20)
+    }
+  }
+}
+
+    for (let i = 0; i < 7; i++) {
+    if (mouseX > 0 + (width / 7) * i && mouseX < width / 7 + (width / 7) * i) {
+      if (player==-1){
+      fill(31, 14, 182, 25)
+      circle(i*100+50, 50, width/7-20)
+    }
+  }
+}
+  pos.add(vel);
+  vel.add(acc);
+  vel.limit(6); 
+
   for(let j=0; j < 7; j++){
     for(let i=0; i < 7; i++)
     if (board[i][j]== 1){
+      acc.y = 0.1;
+      let pc = pos.copy();
       fill(249, 249, 46)
-      circle(i*100+50, j*100+50, width/7-20)
+      brik1 = circle(i*100+50, pos.y, width/7-20)
+
+      if (pc.y > j*100+50){
+        console.log("23");
+        
+        let vc = vel.copy();
+        vc.y = vc.y*= -1
+        circle(i*100+50, j*100+50, width/7-20)
+
+        
+       
+    }
+  
     }
 
      for(let j=0; j < 7; j++){
@@ -42,6 +85,7 @@ function draw() {
 }
 }
 }
+
 
 function mouseClicked() {
   for (let i = 0; i < 7; i++) {
