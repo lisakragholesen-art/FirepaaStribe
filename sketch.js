@@ -25,6 +25,22 @@ function draw() {
   line(0, (height * 3) / 6, width, (height * 3) / 6);
   line(0, (height * 4) / 6, width, (height * 4) / 6);
   line(0, (height * 5) / 6, width, (height * 5) / 6);
+
+  for(let j=0; j < 7; j++){
+    for(let i=0; i < 7; i++)
+    if (board[i][j]== 1){
+      fill(249, 249, 46)
+      circle(i*100+50, j*100+50, width/7-20)
+    }
+
+     for(let j=0; j < 7; j++){
+    for(let i=0; i < 7; i++)
+    if (board[i][j]== -1){
+      fill(31, 14, 182)
+      circle(i*100+50, j*100+50, width/7-20)
+    }
+}
+}
 }
 
 function mouseClicked() {
