@@ -27,12 +27,20 @@ function draw() {
   line(0, (height * 5) / 6, width, (height * 5) / 6);
 
   for(let j=0; j < 7; j++){
-    for(let i=0; i < 6; i++)
+    for(let i=0; i < 7; i++)
     if (board[i][j]== 1){
       fill(255, 204, 0)
-      circle(i*115, height/j, width/7-20)
+      circle(i*100+50, j*100+50, width/7-20)
     }
-  }
+
+     for(let j=0; j < 7; j++){
+    for(let i=0; i < 7; i++)
+    if (board[i][j]== -1){
+      fill(20, 20, 100)
+      circle(i*100+50, j*100+50, width/7-20)
+    }
+}
+}
 }
 
 function mouseClicked() {
