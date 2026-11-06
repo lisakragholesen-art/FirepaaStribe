@@ -9,8 +9,6 @@ for (let i = 0; i < 7; i++) {
 }
 
 function setup() {
-  check = new WinCheck(board);
-
   //virker det
   createCanvas(700, 600);
 
@@ -33,45 +31,61 @@ function draw() {
   line(0, (height * 4) / 6, width, (height * 4) / 6);
   line(0, (height * 5) / 6, width, (height * 5) / 6);
 
-  if (check.checkWin(board) !== 0) {
-    console.log("Player " + check.checkWin(board) + " wins!");
+  if (!gameOver) {
+    const winner = winCheck.checkWin(board);
+    if (winner !== 0) {
+      gameOver = true;
+      message = (winner == 1 ? "Yellow" : "Blue") + " wins!";
+    } else if (winCheck.checkDraw(board)) {
+      gameOver = true;
+      message = "It's a draw!";
+    }
   }
-  if (check.checkDraw(board)) {
-    console.log("It's a draw!");
-  }
+
   for (let i = 0; i < 7; i++) {
     if (mouseX > 0 + (width / 7) * i && mouseX < width / 7 + (width / 7) * i) {
-      if (player==1){
-      fill(249, 249, 46, 25)
-      circle(i*100+50, 50, width/7-20)
+      if (player == 1) {
+        fill(249, 249, 46, 25);
+        circle(i * 100 + 50, 50, width / 7 - 20);
+      }
     }
   }
-}
 
-    for (let i = 0; i < 7; i++) {
+  for (let i = 0; i < 7; i++) {
     if (mouseX > 0 + (width / 7) * i && mouseX < width / 7 + (width / 7) * i) {
-      if (player==-1){
-      fill(31, 14, 182, 25)
-      circle(i*100+50, 50, width/7-20)
+      if (player == -1) {
+        fill(31, 14, 182, 25);
+        circle(i * 100 + 50, 50, width / 7 - 20);
+      }
     }
   }
-}
 
-  for(let j=0; j < 7; j++){
-    for(let i=0; i < 7; i++)
-    if (board[i][j]== 1){
-      fill(249, 249, 46)
-      circle(i*100+50, j*100+50, width/7-20)
-    }
+  for (let j = 0; j < 7; j++) {
+    for (let i = 0; i < 7; i++)
+      if (board[i][j] == 1) {
+        fill(249, 249, 46);
+        circle(i * 100 + 50, j * 100 + 50, width / 7 - 20);
+      }
 
-     for(let j=0; j < 7; j++){
-    for(let i=0; i < 7; i++)
-    if (board[i][j]== -1){
-      fill(31, 14, 182)
-      circle(i*100+50, j*100+50, width/7-20)
+    for (let j = 0; j < 7; j++) {
+      for (let i = 0; i < 7; i++)
+        if (board[i][j] == -1) {
+          fill(31, 14, 182);
+          circle(i * 100 + 50, j * 100 + 50, width / 7 - 20);
+        }
     }
-}
-}
+  }
+
+  if (gameOver) {
+    fill(0, 150);
+    rect(0, 0, width, height);
+    fill(255);
+    rect(width / 2 - 175, height / 2 - 75, 350, 150, 20);
+    fill(0);
+    textSize(40);
+    textAlign(CENTER, CENTER);
+    text(message, width / 2, height / 2);
+  }
 }
 
 function mouseClicked() {
