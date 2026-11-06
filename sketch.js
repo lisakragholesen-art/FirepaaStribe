@@ -16,7 +16,7 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+  background(200, 200, 200);
   //Spillepladen
   line(width / 7, 0, width / 7, height);
   line((width * 2) / 7, 0, (width * 2) / 7, height);
